@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+body {
+  background: #f2f2f2;
+  position: relative;
+}
+
+#c {
+  display: block;
+  margin: 0 auto;
+}
+
+.text {
+  position: absolute;
+  left: 0;
+  padding: 1.5em;
+}
+
+.alert {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  border: 1px solid;
+  padding: 0.8em;
+  margin-left: 1em;
+  max-width: 400px;
+}
+
+.alert-success {
+  border-color: green;
+  background-color: lightgreen;
+}
+
+.alert-error {
+  border-color: red;
+  background-color: darkred;
+}
+
+a {
+  font-family: sans-serif;
+  color: #444;
+}
