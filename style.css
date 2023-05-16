@@ -6,6 +6,8 @@
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+  font-family: sans-serif;
+  font-size: 16px;
 }
 
 body {
@@ -13,7 +15,7 @@ body {
   position: relative;
 }
 
-#c {
+#canvas {
   display: block;
   margin: 0 auto;
 }
@@ -22,6 +24,10 @@ body {
   position: absolute;
   left: 0;
   padding: 1.5em;
+}
+
+a {
+  color: #4998b1;
 }
 
 .alert {
@@ -42,9 +48,4 @@ body {
 .alert-error {
   border-color: red;
   background-color: darkred;
-}
-
-a {
-  font-family: sans-serif;
-  color: #444;
 }
