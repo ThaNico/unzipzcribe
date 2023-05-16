@@ -7,5 +7,6 @@ This idea comes from Tearable-Cloth by [dissimulate](https://github.com/dissimul
 
 
 
-https://github.com/ThaNico/unzipzcribe/assets/9906385/5e415fff-c3cc-4a85-b500-82f745bd5ec4
+
+https://github.com/ThaNico/unzipzcribe/assets/9906385/bad3ed13-b724-4c43-bce5-7cd56ddedf9d
 
