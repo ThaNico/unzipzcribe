@@ -188,16 +188,16 @@ const drawUnsubBtn = () => {
     rectY + rectHeight
   );
   gradient.addColorStop(0, "#0000FF");
-  gradient.addColorStop(0.5, "#FFFFFF");
+  gradient.addColorStop(0.5, "#FF00FF");
   gradient.addColorStop(1, "#FF0000");
 
   ctx.fillStyle = gradient;
   ctx.fillRect(rectX, rectY, rectWidth, rectHeight);
 
-  ctx.fillStyle = "black";
+  ctx.fillStyle = "yellow";
   ctx.font = "bold 15px Arial";
   ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
+  ctx.textBaseline = "top";
   ctx.fillText("Unsubscribe", rectX + rectWidth / 2, rectY + rectHeight / 2);
 };
 
