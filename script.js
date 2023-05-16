@@ -4,12 +4,13 @@
  * https://github.com/dissimulate/Tearable-Cloth
  *
  * This was made in a few hours for fun, going back and forth with ChatGPT, please don't judge :)
+ * This could be refactored and cleaner, also the formatting got fucked at some point
  */
 
 var physics_accuracy = 3,
   mouse_influence = 20,
   mouse_cut = 5,
-  gravity = 1000,
+  gravity = 900,
   cloth_height = 40,
   cloth_width = 60,
   start_y = 20,
@@ -208,13 +209,13 @@ function update() {
 }
 
 function start() {
-  canvas.onmousedown = function (e) {
-    mouse.button = e.which;
+  canvas.ontouchstart = canvas.onmousedown = function (e) {
+    mouse.button = e.which != 0 ? e.which : 1;
     mouse.px = mouse.x;
     mouse.py = mouse.y;
     var rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
+    mouse.x = (e.clientX || e.touches[0].clientX) - rect.left;
+    mouse.y = (e.clientY || e.touches[0].clientY) - rect.top;
     mouse.down = true;
 
     // Check the amount of cloth torn down from the rectangle's position
@@ -239,6 +240,7 @@ function start() {
     ) {
       if (clothTorn > 25) {
         const msgFailElement = document.getElementById("msgfail");
+        if (msgFailElement.style.display === "block") return;
         fadeIn(msgFailElement);
 
         clearTimeout(timer);
@@ -258,15 +260,15 @@ function start() {
     e.preventDefault();
   };
 
-  canvas.onmouseup = function (e) {
+  canvas.ontouchend = canvas.onmouseup = function (e) {
     (mouse.down = !1), e.preventDefault();
   };
 
-  canvas.onmousemove = function (e) {
+  canvas.ontouchmove = canvas.onmousemove = function (e) {
     (mouse.px = mouse.x), (mouse.py = mouse.y);
     var rect = canvas.getBoundingClientRect();
-    (mouse.x = e.clientX - rect.left),
-      (mouse.y = e.clientY - rect.top),
+    (mouse.x = (e.clientX || e.touches[0].clientX) - rect.left),
+      (mouse.y = (e.clientY || e.touches[0].clientY) - rect.top),
       e.preventDefault();
   };
 
