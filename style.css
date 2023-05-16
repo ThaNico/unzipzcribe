@@ -38,6 +38,7 @@ a {
   padding: 0.8em;
   margin-left: 1em;
   max-width: 400px;
+  z-index: 1;
 }
 
 .alert-success {

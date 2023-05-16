@@ -214,8 +214,8 @@ function start() {
     mouse.px = mouse.x;
     mouse.py = mouse.y;
     var rect = canvas.getBoundingClientRect();
-    mouse.x = (e.clientX || e.touches[0].clientX) - rect.left;
-    mouse.y = (e.clientY || e.touches[0].clientY) - rect.top;
+    mouse.x = getCx(e) - rect.left;
+    mouse.y = getCy(e) - rect.top;
     mouse.down = true;
 
     // Check the amount of cloth torn down from the rectangle's position
@@ -267,8 +267,8 @@ function start() {
   canvas.ontouchmove = canvas.onmousemove = function (e) {
     (mouse.px = mouse.x), (mouse.py = mouse.y);
     var rect = canvas.getBoundingClientRect();
-    (mouse.x = (e.clientX || e.touches[0].clientX) - rect.left),
-      (mouse.y = (e.clientY || e.touches[0].clientY) - rect.top),
+    (mouse.x = getCx(e) - rect.left),
+      (mouse.y = getCy(e) - rect.top),
       e.preventDefault();
   };
 
@@ -289,6 +289,9 @@ window.onload = function () {
     (canvas.height = window.innerHeight),
     start();
 };
+
+const getCx = (e) => (e.touches ? e.touches[0].clientX : e.clientX);
+const getCy = (e) => (e.touches ? e.touches[0].clientY : e.clientY);
 
 function fadeIn(element) {
   element.style.opacity = 0;
